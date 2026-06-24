@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raju Mahato · Nepal's No.1 Developer</title>
+  <meta name="description" content="Raju Mahato - Nepal's No.1 Individual App & Website Developer. Creator of EduPath AI, Thagi Satark, and official websites for Former PM Madhav Kumar Nepal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0a0e1a;
+      color: #e8e8e8;
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 30px 20px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, #111827, #1a2035);
+      border-radius: 20px;
+      padding: 40px;
+      border: 1px solid #2a3050;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+    .dev-header {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #2a3050;
+    }
+    .dev-header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #c9a84c;
+      object-fit: cover;
+    }
+    .dev-header .info h1 {
+      font-size: 32px;
+      font-weight: 900;
+    }
+    .dev-header .info h1 span { color: #c9a84c; }
+    .dev-header .info p {
+      color: #8892a0;
+      font-size: 15px;
+    }
+    .dev-header .info .badge {
+      display: inline-block;
+      background: #c9a84c;
+      color: #0a0e1a;
+      padding: 4px 16px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+    .dev-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 24px 0;
+    }
+    .dev-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid #2a3050;
+      border-radius: 14px;
+      padding: 20px 24px;
+      transition: 0.3s;
+    }
+    .dev-card:hover { border-color: #c9a84c; transform: translateY(-3px); }
+    .dev-card i { color: #c9a84c; font-size: 24px; margin-bottom: 8px; }
+    .dev-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .dev-card p { color: #8892a0; font-size: 14px; }
+    .dev-card a { color: #c9a84c; text-decoration: none; }
+    .dev-card a:hover { text-decoration: underline; }
+    
+    /* ===== PROJECTS ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 16px 0 24px;
+    }
+    .project-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid #2a3050;
+      border-radius: 10px;
+      padding: 14px 18px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .project-item:hover { border-color: #c9a84c; }
+    .project-item i { color: #c9a84c; font-size: 18px; width: 28px; }
+    .project-item .info { flex: 1; }
+    .project-item .info h4 { font-size: 14px; font-weight: 600; }
+    .project-item .info p { font-size: 12px; color: #8892a0; }
+    .project-item a { color: #c9a84c; font-size: 13px; text-decoration: none; }
+    .project-item a:hover { text-decoration: underline; }
+    
+    /* ===== FOOTER ===== */
+    .footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #2a3050;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .footer .left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer .left img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #c9a84c;
+      object-fit: cover;
+    }
+    .footer .left .info p {
+      font-size: 13px;
+      color: #8892a0;
+      margin: 0;
+    }
+    .footer .left .info strong { color: #e8e8e8; }
+    .footer .right {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .footer .right a {
+      color: #8892a0;
+      font-size: 20px;
+      transition: 0.3s;
+    }
+    .footer .right a:hover { color: #c9a84c; }
+    .footer .right .back-link {
+      font-size: 14px;
+      color: #c9a84c;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer .right .back-link:hover { text-decoration: underline; }
+    
+    @media (max-width: 768px) {
+      .container { padding: 24px 16px; }
+      .dev-header { flex-direction: column; text-align: center; }
+      .dev-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; text-align: center; }
+      .footer .left { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  
+  <!-- ===== HEADER ===== -->
+  <div class="dev-header">
+    <img src="images/developer.jpg" alt="Raju Mahato">
+    <div class="info">
+      <h1>Raju <span>Mahato</span></h1>
+      <p><i class="fas fa-crown" style="color:#c9a84c;"></i> Nepal's No.1 Individual App & Website Developer</p>
+      <p style="font-size:13px; color:#8892a0;">Kyoto, Japan · Originally from Rautahat, Nepal</p>
+      <span class="badge"><i class="fas fa-code"></i> 10+ Records Created</span>
+    </div>
+  </div>
+  
+  <!-- ===== ABOUT ===== -->
+  <div class="dev-grid">
+    <div class="dev-card">
+      <i class="fas fa-user"></i>
+      <h3>About Me</h3>
+      <p>Raju Mahato (Digambar Mahato) — Nepal's Best and Top Individual App Developer. Founder of <strong style="color:#e8e8e8;">EduPath AI</strong> and <strong style="color:#e8e8e8;">Thagi Satark</strong> — Nepal's First AI Apps. Currently studying IT at Kyoto Computer Gakuin (KCG), Japan.</p>
+    </div>
+    <div class="dev-card">
+      <i class="fas fa-trophy"></i>
+      <h3>Achievements</h3>
+      <p>🏆 32 Quiz Competitions Champion · Team Captain<br>♟️ Chess Champion (4 consecutive years)<br>👨‍💻 300+ Martyr Families Supported</p>
+    </div>
+    <div class="dev-card">
+      <i class="fas fa-globe"></i>
+      <h3>Languages</h3>
+      <p>Nepali · English · Hindi · Bhojpuri · Maithili · Bajika · Japanese</p>
+    </div>
+    <div class="dev-card">
+      <i class="fas fa-envelope"></i>
+      <h3>Contact</h3>
+      <p>📧 <a href="mailto:mahatodigambar0509@gmail.com">mahatodigambar0509@gmail.com</a><br>📱 <a href="tel:+9779851260054">+977 9851260054</a></p>
+    </div>
+  </div>
+  
+  <!-- ===== PROJECTS ===== -->
+  <h2 style="font-size:20px; font-weight:700; margin-top:8px; margin-bottom:12px; color:#c9a84c;">
+    <i class="fas fa-rocket"></i> My Projects
+  </h2>
+  <div class="projects-grid">
+    <div class="project-item">
+      <i class="fas fa-graduation-cap"></i>
+      <div class="info">
+        <h4>EduPath AI</h4>
+        <p>Nepal's First AI Study Abroad App</p>
+      </div>
+      <a href="https://edupath-ai.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+    </div>
+    <div class="project-item">
+      <i class="fas fa-shield-alt"></i>
+      <div class="info">
+        <h4>Thagi Satark</h4>
+        <p>Nepal's First AI Fraud Awareness App</p>
+      </div>
+      <a href="https://thagi-satark.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+    </div>
+    <div class="project-item">
+      <i class="fas fa-landmark"></i>
+      <div class="info">
+        <h4>Madhav Kumar Nepal</h4>
+        <p>Official Portfolio · Former PM</p>
+      </div>
+      <a href="https://madhavnepal.online" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+    </div>
+    <div class="project-item">
+      <i class="fas fa-landmark"></i>
+      <div class="info">
+        <h4>Bharat Prasad Shah</h4>
+        <p>Official Portfolio · Former Minister</p>
+      </div>
+      <a href="https://bharatshah.online" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+    </div>
+    <div class="project-item">
+      <i class="fas fa-school"></i>
+      <div class="info">
+        <h4>Jagdamba School</h4>
+        <p>School Website · Jetharahiya</p>
+      </div>
+      <a href="https://jagdamba-school-five.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+    </div>
+    <div class="project-item">
+      <i class="fas fa-handshake"></i>
+      <div class="info">
+        <h4>SFACL Jetharahiya</h4>
+        <p>Cooperative Website with Admin Panel</p>
+      </div>
+      <a href="https://sfacl-jetharahiya.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+    </div>
+    <div class="project-item">
+      <i class="fas fa-user-tie"></i>
+      <div class="info">
+        <h4>Nitesh Poudel</h4>
+        <p>Portfolio</p>
+      </div>
+      <a href="https://nitesh-poudel.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+    </div>
+    <div class="project-item">
+      <i class="fas fa-user-tie"></i>
+      <div class="info">
+        <h4>Amrendra Yadav</h4>
+        <p>Portfolio</p>
+      </div>
+      <a href="https://amrendra-yadav.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+    </div>
+    <div class="project-item">
+      <i class="fas fa-user-tie"></i>
+      <div class="info">
+        <h4>Gyanu Khadka</h4>
+        <p>Portfolio</p>
+      </div>
+      <a href="https://gyanu-khadka.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+    </div>
+    <div class="project-item">
+      <i class="fas fa-user-tie"></i>
+      <div class="info">
+        <h4>Deepak Yadav</h4>
+        <p>Political Portfolio (Current)</p>
+      </div>
+      <a href="index.html" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+    </div>
+  </div>
+  
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    <div class="left">
+      <img src="images/developer.jpg" alt="Raju Mahato">
+      <div class="info">
+        <p><strong>Raju Mahato</strong> · Nepal's No.1 Developer</p>
+        <p>Kyoto, Japan · <a href="https://rajumahato.it.com" target="_blank" style="color:#c9a84c; text-decoration:none;">rajumahato.it.com</a></p>
+      </div>
+    </div>
+    <div class="right">
+      <a href="https://github.com/rajumahato" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/rajumahato" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://wa.me/9779851260054" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:mahatodigambar0509@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    </div>
+  </div>
+  
+</div>
+</body>
+</html>

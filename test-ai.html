@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Test</title>
+  <style>
+    body { background: #0a0e1a; color: white; font-family: Arial; padding: 40px; text-align: center; }
+    button { padding: 16px 32px; margin: 10px; font-size: 18px; border-radius: 12px; border: none; cursor: pointer; }
+    .ai-btn { background: #6c5ce7; color: white; }
+    .voice-btn { background: #e74c3c; color: white; }
+    .chat-window { background: #1a2035; padding: 20px; border-radius: 12px; max-width: 400px; margin: 20px auto; display: none; }
+    .chat-window.open { display: block; }
+    input { padding: 10px; width: 70%; border-radius: 8px; border: none; }
+  </style>
+</head>
+<body>
+  <h1>🧪 AI फिचर टेस्ट</h1>
+  <p>🤖 AI च्याटबट र 🎤 भ्वाइस सर्च चेक गर्नुहोस्</p>
+
+  <button class="ai-btn" id="testChat">🤖 AI Chatbot खोल्नुहोस्</button>
+  <button class="voice-btn" id="testVoice">🎤 Voice Search</button>
+
+  <div class="chat-window" id="testWindow">
+    <div id="testMessages" style="text-align:left; min-height:100px; margin-bottom:10px;">
+      <p>🤖 Hello! I'm Deepak's AI assistant.</p>
+    </div>
+    <input type="text" id="testInput" placeholder="Ask me...">
+    <button id="testSend" style="padding:10px 20px; background:#c9a84c; color:#000; border:none; border-radius:8px;">Send</button>
+  </div>
+
+  <p id="voiceStatus" style="color:#c9a84c; margin-top:20px;">🎤 Click Voice button and speak</p>
+
+  <script>
+    // ===== CHATBOT =====
+    const chatBtn = document.getElementById('testChat');
+    const chatWindow = document.getElementById('testWindow');
+    const testInput = document.getElementById('testInput');
+    const testSend = document.getElementById('testSend');
+    const testMessages = document.getElementById('testMessages');
+
+    chatBtn.addEventListener('click', function() {
+      chatWindow.classList.toggle('open');
+    });
+
+    function getReply(msg) {
+      const m = msg.toLowerCase();
+      if (m.includes('hello') || m.includes('hi')) return '🤖 Hello! How can I help you?';
+      if (m.includes('deepak')) return 'Deepak Yadav is a political leader and entrepreneur.';
+      if (m.includes('business')) return 'He runs hardware, crusher, and nursing college.';
+      if (m.includes('politics')) return 'He was a Mayoral candidate in 2079 BS.';
+      if (m.includes('hunger')) return 'He did a 6-day hunger strike against corruption.';
+      return 'Ask about Deepak, business, politics, or hunger strike.';
+    }
+
+    function sendTest() {
+      const text = testInput.value.trim();
+      if (!text) return;
+      testMessages.innerHTML += <p style="color:#c9a84c;">🧑 You: </p>;
+      testInput.value = '';
+      setTimeout(() => {
+        const reply = getReply(text);
+        testMessages.innerHTML += <p style="color:#a29bfe;">🤖 AI: </p>;
+        testMessages.scrollTop = testMessages.scrollHeight;
+      }, 400);
+      testMessages.scrollTop = testMessages.scrollHeight;
+    }
+
+    testSend.addEventListener('click', sendTest);
+    testInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') sendTest();
+    });
+
+    // ===== VOICE =====
+    const voiceBtn = document.getElementById('testVoice');
+    const voiceStatus = document.getElementById('voiceStatus');
+
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'en-US';
+
+      voiceBtn.addEventListener('click', function() {
+        voiceStatus.textContent = '🎤 Listening... Speak now!';
+        recognition.start();
+      });
+
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        voiceStatus.textContent = '✅ You said: "' + transcript + '"';
+        testInput.value = transcript;
+        sendTest();
+      };
+
+      recognition.onerror = function() {
+        voiceStatus.textContent = '❌ Voice not recognized. Try again.';
+      };
+
+      recognition.onend = function() {
+        voiceStatus.textContent = '🎤 Click Voice button to speak again';
+      };
+    } else {
+      voiceStatus.textContent = '❌ Voice not supported in this browser. Use Chrome.';
+    }
+
+    console.log('✅ AI Test Page Loaded!');
+  </script>
+</body>
+</html>

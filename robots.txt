@@ -1,0 +1,6 @@
+﻿User-agent: *
+Allow: /
+Disallow: /images/
+Disallow: /private/
+
+Sitemap: https://deepakyadav.com.np/sitemap.xml
